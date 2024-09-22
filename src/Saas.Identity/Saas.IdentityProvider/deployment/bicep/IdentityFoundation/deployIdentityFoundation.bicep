@@ -42,7 +42,7 @@ var tenantSqlDatabaseName = 'sqldb-tenant-${solutionPrefix}-${solutionName}-${so
 var userAssignedIdentityName = 'user-assign-id-${solutionPrefix}-${solutionName}-${solutionPostfix}' 
 var applicationInsightsName = 'appi-${solutionPrefix}-${solutionName}-${solutionPostfix}'
 var logAnalyticsWorkspaceName = 'log-${solutionPrefix}-${solutionName}-${solutionPostfix}'
-var automationAccountName = 'aa-${solutionPrefix}-${solutionName}-${solutionPostfix}'
+//var automationAccountName = 'aa-${solutionPrefix}-${solutionName}-${solutionPostfix}'
 
 var signupAdminAppName = 'signupadmin-app'
 var saasAppName = 'saas-app'
@@ -164,7 +164,7 @@ module appPlanModule './Module/appPlan.bicep' = {
     userAssignedIdentityName: userAssignedIdentity.name
     applicationInsightsName: applicationInsightsName
     logAnalyticsWorkspaceName: logAnalyticsWorkspaceName
-    automationAccountName: automationAccountName
+ //   automationAccountName: automationAccountName
   }
   dependsOn:  [
     appConfigurationModule
@@ -207,4 +207,4 @@ output sqlServerFQDN string = sqlDbsModule.outputs.sqlServerFQDN
 output SqlDbServerName string = sqlDbsModule.outputs.sqlServerName
 output applicationInsightsName string = applicationInsightsName
 output logAnalyticsWorkspaceName string = logAnalyticsWorkspaceName
-output automationAccountName string = automationAccountName
+//output automationAccountName string = automationAccountName

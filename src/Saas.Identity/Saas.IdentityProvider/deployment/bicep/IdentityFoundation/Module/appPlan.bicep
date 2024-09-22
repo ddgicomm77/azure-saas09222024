@@ -11,8 +11,8 @@ param userAssignedIdentityName string
 @description('The name of the Log Analytics Workspace used by Application Insigths.')
 param logAnalyticsWorkspaceName string
 
-@description('The name of the Automation Account.')
-param automationAccountName string
+//@description('The name of the Automation Account.')
+//param automationAccountName string
 
 @description('The name of Application Insights.')
 param applicationInsightsName string
@@ -48,25 +48,25 @@ resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2022-10
   }
 }
 
-resource automationAccount 'Microsoft.Automation/automationAccounts@2022-08-08' = {
-  name: automationAccountName
-  location: location
-  properties: {
-    sku: {
-      name: 'Basic'
-    }
-  }
-}
+//resource automationAccount 'Microsoft.Automation/automationAccounts@2022-08-08' = {
+//  name: automationAccountName
+//  location: location
+//  properties: {
+//    sku: {
+//      name: 'Basic'
+//    }
+//  }
+//}
 
-var automationAccountLinkedWorkspaceName = 'Automation'
+//var automationAccountLinkedWorkspaceName = 'Automation'
 
-resource automationAccountLinkedWorkspace 'Microsoft.OperationalInsights/workspaces/linkedServices@2020-08-01' = {
-  name: automationAccountLinkedWorkspaceName
-  parent: logAnalyticsWorkspace
-  properties: {
-    resourceId: automationAccount.id
-  }
-}
+//resource automationAccountLinkedWorkspace 'Microsoft.OperationalInsights/workspaces/linkedServices@2020-08-01' = {
+//  name: automationAccountLinkedWorkspaceName
+//  parent: logAnalyticsWorkspace
+//  properties: {
+//    resourceId: automationAccount.id
+//  }
+//}
 
 resource applicationInsights 'Microsoft.Insights/components@2020-02-02' = {
   name: applicationInsightsName
